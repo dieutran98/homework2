@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  api:
+    build: 
+      context: ./api
+    container_name: api.caching
+    command: make run
+    volumes:
+      - ./api:/api
+    ports:
+      - "3000:3000"
+  redis:
+    build:
+      context: ./redis
+    container_name: redis.caching
+    ports:
+      - "6379:6379"
